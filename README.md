@@ -1,5 +1,5 @@
 
-![alt text](https://unsplash.com/photos/a-woman-is-wrapped-in-plastic-for-a-fashion-shoot-P98g0W3Tgcg)
+![alt text](https://github.com/asb2004/SwiftySnap/blob/main/SwiftySnapView.jpg)
 
 # SwiftySnap 📸
 
