@@ -53,7 +53,7 @@ public class SwiftySnapViewController: UIViewController {
 
     //MARK: - View Life Cycle Methods
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "SwiftySnapViewController", bundle: Bundle(for: SwiftySnapViewController.self))
+        super.init(nibName: "SwiftySnapViewController", bundle: Bundle.module)
     }
     
     required init?(coder: NSCoder) {
@@ -62,7 +62,7 @@ public class SwiftySnapViewController: UIViewController {
     }
     
     private func loadViewFromNib() {
-        let bundle = Bundle(for: SwiftySnapViewController.self)
+        let bundle = Bundle.module
         let nib = UINib(nibName: "SwiftySnapViewController", bundle: bundle)
         nib.instantiate(withOwner: self, options: nil)
     }
@@ -531,7 +531,7 @@ extension SwiftySnapViewController {
 }
 
 // MARK: - Photo Capture Delegate Methods
-extension SwiftySnapViewController: AVCapturePhotoCaptureDelegate {
+extension SwiftySnapViewController: @preconcurrency AVCapturePhotoCaptureDelegate {
 
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let imageData = photo.fileDataRepresentation(), var image = UIImage(data: imageData) else { return }
@@ -555,7 +555,7 @@ extension SwiftySnapViewController: AVCapturePhotoCaptureDelegate {
 }
 
 // MARK: - Video Recording Delegate Methods
-extension SwiftySnapViewController: AVCaptureFileOutputRecordingDelegate {
+extension SwiftySnapViewController: @preconcurrency AVCaptureFileOutputRecordingDelegate {
 
     public func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         self.btnShutter.isUserInteractionEnabled = true
