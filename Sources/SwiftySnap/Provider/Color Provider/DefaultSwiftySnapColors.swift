@@ -11,6 +11,6 @@ public struct DefaultSwiftySnapColors: SwiftySnapColorProviding {
     public init() {}
 
     public var primaryColor: UIColor {
-        UIColor(named: "app_primary_color", in: .module, compatibleWith: nil) ?? .systemBlue
+        UIColor(named: "app_primary_color", in: SwiftySnapResourcesBundleProvider.bundle, compatibleWith: nil) ?? .systemBlue
     }
 }
